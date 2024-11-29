@@ -1,0 +1,23 @@
+public class java102 {
+    public static poiny centerOfMass(poiny[] points) {
+        if (points == null || points.length == 0) {
+            return null; 
+        }
+    
+       
+        int sumX = 0;
+        int sumY = 0;
+    
+        
+        for (int i = 0; i < points.length; i++) {
+            sumX += points[i].x; 
+            sumY += points[i].y;
+        }
+    
+        
+        int centerX = sumX / points.length; 
+        int centerY = sumY / points.length; 
+        
+        return new poiny(centerX, centerY);
+    }
+}    
