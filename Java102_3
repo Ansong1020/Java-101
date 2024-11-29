@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+
+public class java102_3 {
+    public class Grid<T> {
+        private T[][] grid; 
+    
+        public Grid(T[][] grid) {
+        this.grid = grid;
+    }
+
+    public ArrayList<T> diagonal() {
+        ArrayList<T> diagonalElements = new ArrayList<>();
+
+        // Step 1: Determine the size of the grid
+        int size = Math.min(grid.length, grid[0].length); // Ensure it's square or use the smallest dimension
+
+        // Step 2: Loop through the diagonal positions
+        for (int i = 0; i < size; i++) {
+            diagonalElements.add(grid[i][i]); // Add element at (i, i) to the list
+        }
+
+        // Step 3: Return the list of diagonal elements
+        return diagonalElements;
+    }
+}   
+
+}
