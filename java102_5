@@ -1,0 +1,35 @@
+public class java102_5 {
+    interface Shape {
+        double area();
+        double perimeter();
+    }
+    
+    class RightTriangle implements Shape {
+        double base;
+        double height;
+    
+        RightTriangle(double base, double height) {
+            this.base = base;
+            this.height = height;
+        }
+    
+        @Override
+        public double area() {
+            return 0.5 * base * height;
+        }
+    
+        @Override
+        public double perimeter() {
+            double hypotenuse = Math.sqrt(base * base + height * height);
+            return base + height + hypotenuse;
+        }
+    
+        public static boolean similar(RightTriangle t1, RightTriangle t2) {
+            // Check if the ratio of corresponding sides is the same
+            double ratio1 = t1.base / t2.base;
+            double ratio2 = t1.height / t2.height;
+            return Math.abs(ratio1 - ratio2) < 1e-6; // Allowing a small tolerance for floating-point errors
+        }
+    }
+    
+}
