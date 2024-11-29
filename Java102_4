@@ -1,0 +1,43 @@
+public class java102_4 {
+    class Point {
+        double x, y;
+    
+        Point(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+    
+    class Circle {
+        Point center;
+        double radius;
+    
+        Circle(Point center, double radius) {
+            this.center = center;
+            this.radius = radius;
+        }
+    
+        public static Circle fromPoints(Point p1, Point p2, Point p3) {
+            // Calculate the midpoints of two line segments
+            double midX1 = (p1.x + p2.x) / 2;
+            double midY1 = (p1.y + p2.y) / 2;
+            double midX2 = (p2.x + p3.x) / 2;
+            double midY2 = (p2.y + p3.y) / 2;
+    
+            // Slopes of the perpendicular bisectors
+            double slope1 = -(p2.x - p1.x) / (p2.y - p1.y);
+            double slope2 = -(p3.x - p2.x) / (p3.y - p2.y);
+    
+            // Intersection of the two perpendicular bisectors (center of the circle)
+            double centerX = (slope1 * midX1 - slope2 * midX2 + midY2 - midY1) / (slope1 - slope2);
+            double centerY = slope1 * (centerX - midX1) + midY1;
+    
+            Point center = new Point(centerX, centerY);
+    
+            // Radius of the circle
+            double radius = Math.sqrt(Math.pow(center.x - p1.x, 2) + Math.pow(center.y - p1.y, 2));
+    
+            return new Circle(center, radius);
+        }
+    }
+}
