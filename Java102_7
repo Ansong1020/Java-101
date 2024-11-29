@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+
+    class LibraryItem {
+        private boolean isCheckedOut;
+    
+        public LibraryItem(boolean isCheckedOut) {
+            this.isCheckedOut = isCheckedOut;
+        }
+    
+        // Method to check if the item is available
+        public boolean isAvailable() {
+            return !isCheckedOut;
+        }
+    }
+    
+    public class java102_7 {
+        // Method to find all available items
+        public static ArrayList<LibraryItem> availableItems(LibraryItem[] items) {
+            // Create an ArrayList to store available items
+            ArrayList<LibraryItem> available = new ArrayList<>();
+    
+            // Loop through each item in the input array
+            for (LibraryItem item : items) {
+                // If the item is available, add it to the list
+                if (item.isAvailable()) {
+                    available.add(item);
+                }
+            }
+    
+            // Return the list of available items
+            return available;
+        }
+    
+        public static void main(String[] args) {
+            // Create some library items
+            LibraryItem[] items = {
+                new LibraryItem(true),  // Checked out
+                new LibraryItem(false), // Available
+                new LibraryItem(false)  // Available
+            };
+    
+            // Find available items
+            ArrayList<LibraryItem> available = availableItems(items);
+    
+            // Print the number of available items
+            System.out.println("Number of available items: " + available.size());
+        }
+    }
+
+    
