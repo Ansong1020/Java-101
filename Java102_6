@@ -1,0 +1,37 @@
+public class java102_6 {
+    class LibraryItem {
+        private boolean isCheckedOut;
+    
+        public LibraryItem(boolean isCheckedOut) {
+            this.isCheckedOut = isCheckedOut;
+        }
+    
+        public void returnToLibrary() {
+            this.isCheckedOut = false;
+            System.out.println("Item returned to the library.");
+        }
+    
+        public boolean isAvailable() {
+            return !isCheckedOut;
+        }
+    }
+    
+    public class Main {
+        public static void returnAll(LibraryItem[] items) {
+            for (LibraryItem item : items) {
+                item.returnToLibrary();
+            }
+        }
+    
+        public static void main(String[] args) {
+            LibraryItem[] items = {
+
+
+
+            };
+    
+            returnAll(items);
+        }
+    }
+    
+}
